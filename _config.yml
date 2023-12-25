@@ -1,0 +1,14 @@
+collections:
+  specials:
+    output: true
+    permalink: /:path/
+  pages:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "specials"
+    values:
+      layout: "specials"

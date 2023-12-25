@@ -1,0 +1,51 @@
+---
+---
+<!DOCTYPE html>
+<html class="js-html pg-{{ page.key }}">
+	<head>
+		{% include components/meta-tags.html %}
+	</head>
+	
+	<body>
+		<input type="checkbox" id="chkbx4about" name="chkbx4about" checked />
+	
+		<main>
+			<section class="section">
+				<header class="header">
+					<img src="/assets/images/b19-logo-full_bg.png" class="header-logo" />
+					<h1>The Black Rose</h1>
+				</header>
+				
+				<section class="content">
+					<img src="/assets/images/icon_bouquet_blank.png" class="content-img" />
+					
+					<nav class="content-buttons">
+						<label for="chkbx4about" class="content-button">About</label>
+						<span class="content-button">Whatsapp</span>
+					</nav>
+				</section>
+				
+				<footer class="footer">
+					&copy; Copyrights 2024 Babylon19. All rights reserved.
+				</footer>
+			</section>
+			<aside class="aside">
+				<section class="about">
+					<label for="chkbx4about" class="about-button_close">x</label>
+					<div class="about-content">
+						<h1 class="about-content-title">The Black Rose</h1>
+						<div class="about-content-text">
+							<p class="about-content-text-p">And throughout the years, the Black Rose has become symbol for allyship. The dark petals echoing the enduring resilience of every extended hand... Cadets, far and near; Cadets, old and new.</p>
+						</div>
+						<div class="about-content-donation">R100 Donation</div>
+					</div>
+				</section>
+				
+				<section class="gallery d-cssCentered">{% for i in (1..19) %}
+					<img src="/assets/images/placeholder-1x1.png" class="gallery-img" />{% endfor %}
+				</section>
+			</aside>
+		</main>
+
+	</body>
+</html>
