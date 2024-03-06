@@ -1,104 +1,175 @@
 /*** CANCEL ***/
-html, body, main { width: 100%; height: 100%; }
-.inception br { display: none; }
+html, body { width: 100%; height: 100%; }
+main { min-height: 100%; }
 /*** END CANCEL ***/
 
-/*** COLORS ***/ {% assign vColorPurple = "#340853" %}
-{ color: {{ vColorPurple }}; }
+/*** Z-INDEXES ***/
+.banner-samples-list-item:nth-child(3) { position: relative; z-index: 10; }
+.banner-samples-list-item:nth-child(2) { position: relative; z-index: 20; }
+.banner-word { position: relative; z-index: 30; }
+.banner-samples-list-item:nth-child(1) { position: relative; z-index: 40; }
+/*** END Z-INDEXES ***/
 
-html { background-color: black; }
+/*** COLORS ***/
+/* dark purple: #340853 */
+/* dark purple: #AA169D */ {% assign vColorPurple = "#AA169D" %}
+.banner-samples-product,
+.header-button,
+.d-ptw { background-color: {{ vColorPurple }}; }
 
-* { color: white; }
+html, body { background-color: #eee; }
+
+.footer { background-color: #AAA; }
+.banner-samples-list-item:nth-child(1) .banner-samples-product { background-color: #AAA !important; }
+.banner-samples-list-item { border-color: black; }
 /*** END COLORS ***/
 
 /*** FONTS ***/
 @font-face{font-family:"Bauhaus";src:url("../../assets/fonts/BAUHS93.TTF");}
 @font-face{font-family:"Impact";src:url("../../assets/fonts/impact.TTF");}
 
-    { font-family: "Bauhaus"; }
-* { font-family: "Impact"; word-spacing: .25em; }
+ { font-family: "Bauhaus"; }
+*,
+.u-marquee-box { font-family: "Impact"; word-spacing: .25em; }
 
-.inception-dock.is-right .inception-text { text-align: left; }
-.footer-copyrights,
-.inception-dock.is-left .inception-text { text-align: right; }
+.u-marquee-box { font-size: 1.5em; }
+
+.footer { text-align: center; }
 /*** END FONTS ***/
 
 /*** MEDIA ***/
-.u-specialText {
-    color: #340853;
-    background-image: url("../../assets/images/purple-background.png");
-    background-size: cover;
-    background-position: fixed;
-    background-clip: text;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        -o-background-clip: text;
-    background-fill-color: transparent;
-        -webkit-background-fill-color: transparent;
-        -moz-background-fill-color: transparent;
-        -o-background-fill-color: transparent;
-    color: transparent;
-}
+.banner-samples-product,
+.header-button,
+.u-specialText,
+.d-ptw { background-image: url("../../assets/images/purple-background.png"); }
+	.banner-samples-list-item:nth-child(1) .banner-samples-product {
+		background-image: none !important;
+		background-image: initial !important;
+	}
 /*** END MEDIA ***/
 
 /*** UTILITIES ***/
+    /*** .u-marquee ***/
+    .u-marquee-wrap { display: flex; }
+    .u-marquee-box { flex: 1; }
+
+    .u-marquee {
+        position: relative;
+    }
+    .u-marquee-wrap {
+        position: relative;
+        width: fit-content;
+//        width: 100%;
+
+//        border: 1px solid yellow;
+    }
+    .u-marquee-box {
+        position: relative;
+//        width: 25%;
+        display: inline-block;
+        padding: .5em;
+		word-wrap: nowrap;
+		white-space: nowrap;
+
+//        border: 1px solid red;
+    }
+		.u-marquee-box { padding: 0 .5em; }
+	
+	/*** .u-specialText ***/	
+	.u-specialText {
+		color: #340853;
+	//    background-image: url("../../assets/images/purple-background.png");
+		background-size: cover;
+		background-position: fixed;
+		background-clip: text;
+			-webkit-background-clip: text;
+			-moz-background-clip: text;
+			-o-background-clip: text;
+		background-fill-color: transparent;
+			-webkit-background-fill-color: transparent;
+			-moz-background-fill-color: transparent;
+			-o-background-fill-color: transparent;
+		color: transparent;
+	}
 /*** END UTILITIES ***/
 
 /*** COMPONENTS ***/
-    /*** COMMONS ***/
-    main { display: flex; }
-    main { flex-direction: column; }
-    .inception_wrap { flex: 1; }
+	/*** COMMONS ***/
+	main { display: flex; flex-direction: column; }
+	.banner { flex: 1; }
+	
+	.banner-samples-list-item,
+	.header-button	{ border-radius: .25em; overflow: hidden; }
 
-    main,
-    .footer,
-    .header { padding: .25em; }
+	/*** .banner ***/
+	.banner {
+		padding: 7vw 0;
+	}
+	.banner-wrap {
+		position: relative;
+	}
+	
+	.banner-samples {
+		position: absolute; top: 0; left: 0;
+		width: 100%; height: 100%;
+	}
+	.banner-samples-list {
+		position: relative; left: 21.5%;
+			height: 100%;
+		display: inline-block;
+	}
+	.banner-samples-list-item {
+		position: absolute !important;
+			height: 100%;
+		border-width: .19em; border-style: solid;
+	}
+		.banner-samples-list-item:nth-child(1) { position: relative !important; border: initial !important; }
+	.banner-samples-product {
+		width: auto; height: 100%;
+	}
+	
+	.banner-word {
+		width: 100%;
+	}
+	
+	/*** .footer ***/
+	.footer {
+		padding: .5em;
+	}
+	
+	/*** .header ***/
+	.header { display: flex; }
+	.header {// justify-content: flex-end; }
+	hr { flex: 1; }
 
-    /*** .footer **/
-    .footer {
-        margin-top: 7em;
-    }
-
-    /*** .header ***/
-    .header-logo-img {
-        width: auto;
-    }
-
-    /*** .inception ***/
-    .inception,
-    .inception-dock { display: flex; }
-    .inception-dock { flex-direction: column; }
-    .inception-dock { justify-content: center; }
-    .inception-dock { flex: 1; }
-
-    .inception {
-        width: 100%;
-    }
-    .inception-dock {
-        padding: .25em;
-    }
-    .inception-text {
-        display: block;
-    }
+	.header {
+		padding: 1em;
+	}
+	.header-button {
+//		text-indent: -9999px;
+		
+		width: 1.9em; height: 1.9em;
+	}
+	.header-button-img {
+		padding: .35em;
+	}
+	.header-logo-img { width: auto; height: 1.9em; }
 /*** END COMPONENTS ***/
-
-/*** INTERACTIVITY ***/
-/*** END INTERACTIVITY ***/
 
 /*** MEDIA-QUERIES ***/
 @media all and (max-width: 50em) {
     body, html, main { font-size: 16px; }
-    
-    .inception-text { font-size: 1.9em; }
-
-    .header-logo-img { height: 3em; }
+	
+		/*** .banner ***/{% for i in (2..3) %}
+		.banner-samples-list-item:nth-child({{ i }}) { top: -{{ i | times: i | divided_by: 4 }}em; left: -{{ i | times: i | divided_by: 4 }}em; }{% endfor %}
+		.jekyllPlaceholderClass { width: auto; }
 }
 @media all and (min-width: 50em) {
     body, html, main { font-size: 18px; }
-
-    .inception-text { font-size: 3em; }
-
-    .header-logo-img { height: 3em; }
+	
+		/*** .banner ***/{% for i in (2..3) %}
+		.banner-samples-list-item:nth-child({{ i }}) { top: -{{ i | times: i | divided_by: 2 }}em; left: -{{ i | times: i | divided_by: 2 }}em; }{% endfor %}
+		.jekyllPlaceholderClass { width: auto; }
 }
 /*** END MEDIA-QUERIES ***/
 
@@ -117,4 +188,48 @@ html { background-color: black; }
 /*** END DECORATION ***/
 
 /*** ANIMATION ***/
+.u-marquee {
+    --vOffsetLeft: 20%;
+    --vMoveInitialLeft: calc(-25% + var(--vOffsetLeft));
+    --vMoveFinalLeft: calc(-50% + var(--vOffsetLeft));
+
+	--vOffsetRight: 80%;
+    --vMoveInitialRight: calc(25% - var(--vOffsetRight));
+    --vMoveFinalRight: calc(50% - var(--vOffsetRight));
+}
+.u-marquee:hover .u-marquee-wrap {
+//    animation-play-state: paused !important;
+}
+.u-marquee.is-variant_left .u-marquee-wrap {
+    animation: cssMarquee-toTheLeft 15s linear infinite;
+    transform: translate3d(var(--vMoveInitialLeft), 0, 0);
+}
+.u-marquee.is-variant_right .u-marquee-wrap {
+    animation: cssMarquee-toTheRight 19s linear infinite;
+    transform: translate3d(var(--vMoveInitialRight), 0, 0);
+}
+
+
+@keyframes cssMarquee-toTheLeft {
+    0% { transform: translate3d(var(--vMoveInitialLeft), 0, 0); }
+    100% { transform: translate3d(var(--vMoveFinalLeft), 0, 0); }
+}
+@keyframes cssMarquee-toTheRight {
+    0% { transform: translate3d(var(--vMoveInitialRight), 0, 0); }
+    100% { transform: translate3d(var(--vMoveFinalRight), 0, 0); }
+}
 /*** END ANIMATION ***/
+
+/*** CSS-HACKS ***/
+.u-marquee { overflow: hidden; }
+/*** END CSS-HACKS ***/
+
+/*** SANDBOX ***/
+.u-marquee-box {// color: white; }
+.u-marquee {// background-color: black; }
+.u-marquee-box { text-align: center; }
+/*** END SANDBOX ***/
+
+/*** TO-DELETE ***/
+.footer { display: none !important; }
+/*** END TO-DELETE ***/
